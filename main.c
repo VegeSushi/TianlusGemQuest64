@@ -21,4 +21,14 @@ int main(void) {
     graphics_draw_text(disp, 20, 10, "     Fan game by VegeSushi");
 
     display_show(disp);
+
+    while (1) {
+        joypad_poll();
+		joypad_buttons_t keys = joypad_get_buttons_pressed(JOYPAD_PORT_1);
+
+        if (keys.start) {
+            graphics_draw_sprite(disp, 0, 0, background);
+            break;
+        }
+    }
 }
