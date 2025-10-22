@@ -18,11 +18,14 @@ filesystem/%.sprite: assets/%.png
 $(BUILD_DIR)/tgq64.dfs: $(assets_conv)
 $(BUILD_DIR)/tgq64.elf: $(src:%.c=$(BUILD_DIR)/%.o)
 
-tgq64.z64: N64_ROM_TITLE="tianlusgemquest64"
+tgq64.z64: N64_ROM_TITLE="tianlusjewelquest64"
 tgq64.z64: $(BUILD_DIR)/tgq64.dfs
 
 clean:
 	rm -rf $(BUILD_DIR) filesystem/ tgq64.z64
+
+run: all
+	gopher64 tgq64.z64
 
 -include $(wildcard $(BUILD_DIR)/*.d)
 
